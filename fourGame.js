@@ -16,7 +16,8 @@ window.onload = function(){
         }
         boardHolder.appendChild(board);
     }
-    buildBoard();   //build the board!
+    buildBoard();   //build the board for looking at
+    initBoard();    //init the board for working on
 }
 
 /* GAME LOGIC */
@@ -26,6 +27,7 @@ window.onload = function(){
     As board fills, smaller indices in the 2D will be occupied first.
 */
 var boardArr = [];  //the array we'll keep our game data in
+var areBlanks = true;   //keep track of available spaces??
 
 /* Builds our boardArray for playing with */
 function initBoard(){
@@ -39,10 +41,20 @@ function initBoard(){
     console.log(boardArr);
 }
 
+function runGame(){
+    //while there's no winner and open spaces
+    //  p1 chooses a column to drop a piece in
+    //  if piece connects4()
+    //      p1 wins
+    //  start over with p2
+}
+
 /* With row and col of new piece (type p), calcs if four in a row 
     REMEMBER 2D arr ROW represents a board COL
 */
 function connects4(r,c,p){
+    //should we do this recursively??
+
     //1 check both neighbors in this array first   ct++ c+1/c-1
     //  if neighbor p, check next neighbor         ct++ c++/c--
     //      until ct=4 (true) or neighbor !p
@@ -53,6 +65,5 @@ function connects4(r,c,p){
     //  if diag p, check their diag                ct++ r++,c++/c--
     //      until ct=4 (true) or diag !p
     //4 IFF neighbor checked, no four in a row (false)
+    return false;
 }
-
-initBoard();
